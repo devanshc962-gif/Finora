@@ -1,0 +1,20 @@
+<header class="topbar">
+    <a class="brand" href="${pageContext.request.contextPath}/app/dashboard"><span class="brand-mark">f</span><span>finora</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+        <c:if test="${not empty sessionScope.user and sessionScope.user.role eq 'USER'}">
+            <a href="${pageContext.request.contextPath}/app/dashboard">Overview</a>
+            <a href="${pageContext.request.contextPath}/app/expenses">Expenses</a>
+            <c:if test="${budgetsEnabled}"><a href="${pageContext.request.contextPath}/app/budgets">Budgets</a></c:if>
+            <c:if test="${goalsEnabled}"><a href="${pageContext.request.contextPath}/app/goals">Goals</a></c:if>
+        </c:if>
+        <c:if test="${not empty sessionScope.user and sessionScope.user.role eq 'ADMIN'}">
+            <a href="${pageContext.request.contextPath}/admin">Admin</a>
+        </c:if>
+    </nav>
+    <c:if test="${not empty sessionScope.user}">
+        <div class="top-user"><span class="avatar"><c:out value="${sessionScope.user.initial}"/></span><span class="user-name"><c:out value="${sessionScope.user.name}"/></span>
+            <form method="post" action="${pageContext.request.contextPath}/logout" class="logout-form"><input type="hidden" name="csrfToken" value="${csrfToken}"><button class="button-quiet" type="submit">Sign out</button></form>
+        </div>
+    </c:if>
+</header>
+<script src="${pageContext.request.contextPath}/assets/app-interactions.js?v=1" defer></script>

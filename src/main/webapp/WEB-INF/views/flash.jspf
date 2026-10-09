@@ -1,0 +1,1 @@
+<c:if test="${not empty flashMessage}"><div class="notice ${flashType eq 'error' ? 'notice-error' : 'notice-success'}" role="status" data-toast data-toast-type="${flashType}"><span><c:out value="${flashMessage}"/></span><button type="button" class="notice-close" data-toast-close aria-label="Dismiss message">x</button></div></c:if>

@@ -1,0 +1,17 @@
+/target/
+/.pptx-build/
+/deliverables/Finora_Project_Overview.pptx
+/data/
+*.db
+*.db-shm
+*.db-wal
+*.keyring
+*.keyring.tmp
+*.keyring.*
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+*.iml
